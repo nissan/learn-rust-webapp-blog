@@ -28,7 +28,7 @@ type Result<T, E = Debug<diesel::result::Error>> = std::result::Result<T, E>;
 
 #[post("/post", format = "json", data = "<post>")]
 pub fn create_post(post: Json<NewPost>) -> Result<Created<Json<NewPost>>> {
-    use self::schema::posts::dsl::*;
+    
     use models::Post;
     let connection = &mut establish_connection_pg();
 
